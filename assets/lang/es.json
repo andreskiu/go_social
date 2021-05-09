@@ -1,0 +1,43 @@
+{
+    "activities": {
+        "pages": {
+            "activities": {
+                "buttons": {},
+                "errors": {
+                    "invalidParams": "Por favor revise el formulario",
+                    "notFound": "Recurso no encontrado",
+                    "server_error": "Por favor revise su conexión a internet"
+                },
+                "labels": {
+                    "title": "Actividades"
+                }
+            }
+        },
+        "fields": {
+            "title": {
+                "label": "Título",
+                "errors": {
+                    "empty": "Por favor ingrese un título"
+                }
+            },
+            "description": {
+                "label": "Descripción",
+                "errors": {
+                    "empty": "Por favor ingrese una descripción"
+                }
+            },
+            "address": {
+                "label": "Dirección",
+                "errors": {
+                    "empty": "Por favor ingrese la dirección"
+                }
+            },
+            "date": {
+                "label": "Fecha del evento",
+                "errors": {
+                    "empty": "Requerida"
+                }
+            }
+        }
+    }
+}

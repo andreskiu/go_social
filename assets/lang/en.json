@@ -1,0 +1,43 @@
+{
+    "activities": {
+        "pages": {
+            "activities": {
+                "buttons": {},
+                "errors": {
+                    "invalidParams": "Please check the form",
+                    "notFound": "Resource not found",
+                    "server_error": "Please check your internet connection"
+                },
+                "labels": {
+                    "title": "Activities"
+                }
+            }
+        },
+        "fields": {
+            "title": {
+                "label": "Title",
+                "errors": {
+                    "empty": "Please enter a title"
+                }
+            },
+            "description": {
+                "label": "Description",
+                "errors": {
+                    "empty": "Please enter a description"
+                }
+            },
+            "address": {
+                "label": "Address",
+                "errors": {
+                    "empty": "Please enter an Address"
+                }
+            },
+            "date": {
+                "label": "Activity Date",
+                "errors": {
+                    "empty": "Required"
+                }
+            }
+        }
+    }
+}
