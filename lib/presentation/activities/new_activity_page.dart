@@ -81,18 +81,21 @@ class NewActivityPage extends StatelessWidget {
                               firstDate: _today,
                               lastDate: _today.add(Duration(days: 365)),
                             ),
-                            AppButton(
-                                textContent: "Save",
-                                onPressed: () async {
-                                  if (_saveActivityForm.currentState
-                                      .validate()) {
-                                    _saveActivityForm.currentState.save();
-                                    final _success = await state.submitForm();
-                                    if (_success) {
-                                      Navigator.of(context).pop();
-                                    }
-                                  }
-                                })
+                            state.isLoading
+                                ? ResponsiveCircularIndicator()
+                                : AppButton(
+                                    textContent: "Save",
+                                    onPressed: () async {
+                                      if (_saveActivityForm.currentState
+                                          .validate()) {
+                                        _saveActivityForm.currentState.save();
+                                        final _success =
+                                            await state.submitForm();
+                                        if (_success) {
+                                          Navigator.of(context).pop();
+                                        }
+                                      }
+                                    })
                           ],
                         ),
                       ),

@@ -30,30 +30,48 @@ class ActivityTile extends StatelessWidget {
               ),
             );
           },
-          child: ListTile(
-            contentPadding: EdgeInsets.only(
-              left: _horizontalUnit * UIHelper.spaceSemiMedium,
-            ),
-            title: Row(
+          child: Card(
+            elevation: 4,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  child: ResponsiveText(
-                    activity.title,
-                    fontSize: 30,
+                Stack(
+                  children: [
+                    Container(
+                      height: _verticalUnit * 30,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage(activity.image),
+                        ),
+                      ),
+                    ),
+                    Positioned.fill(
+                      top: _verticalUnit,
+                      right: _horizontalUnit * UIHelper.spaceSmall,
+                      child: ResponsiveText(
+                        DateFormat.MEd().format(activity.date),
+                        color: ColorPalette.white,
+                        textAlign: TextAlign.end,
+                      ),
+                    ),
+                    Positioned(
+                      bottom: _verticalUnit * UIHelper.spaceSmall,
+                      left: _horizontalUnit * UIHelper.spaceSmall,
+                      child: ResponsiveText(
+                        activity.title,
+                        color: ColorPalette.white,
+                        fontSize: 35,
+                      ),
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: _verticalUnit,
+                    left: _horizontalUnit,
                   ),
-                ),
-                ResponsiveText(
-                  DateFormat.MEd().format(activity.date),
-                  color: ColorPalette.primaryColorDark,
-                  textAlign: TextAlign.end,
-                ),
-              ],
-            ),
-            subtitle: Padding(
-              padding: EdgeInsets.only(top: _verticalUnit * 2),
-              child: Column(
-                children: [
-                  Row(
+                  child: Row(
                     children: [
                       Icon(Icons.person),
                       ResponsiveText(
@@ -62,20 +80,26 @@ class ActivityTile extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Row(
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: _verticalUnit / UIHelper.spaceSmall,
+                    left: _horizontalUnit,
+                    bottom: _verticalUnit,
+                  ),
+                  child: Row(
                     children: [
                       Icon(Icons.location_on),
                       Expanded(
                         child: ResponsiveText(
                           activity.address,
                           color: ColorPalette.primaryColorDark,
-                          // maxLines: 2,
                         ),
                       ),
                     ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         );

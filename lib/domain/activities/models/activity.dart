@@ -8,6 +8,7 @@ class Activity extends Equatable {
   final String title;
   final String description;
   final DateTime date;
+  final String image;
 
   Activity({
     this.id,
@@ -16,6 +17,7 @@ class Activity extends Equatable {
     @required this.title,
     @required this.description,
     @required this.date,
+    this.image,
   });
 
   @override
@@ -26,6 +28,7 @@ class Activity extends Equatable {
         title,
         description,
         date,
+        image,
       ];
 
   Activity copyWith({
@@ -35,6 +38,7 @@ class Activity extends Equatable {
     String title,
     String description,
     DateTime date,
+    String image,
   }) {
     return Activity(
       id: id ?? this.id,
@@ -43,6 +47,7 @@ class Activity extends Equatable {
       title: title ?? this.title,
       description: description ?? this.description,
       date: date ?? this.date,
+      image: image ?? this.image,
     );
   }
 }

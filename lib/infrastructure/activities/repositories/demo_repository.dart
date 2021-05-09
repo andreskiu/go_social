@@ -9,11 +9,12 @@ import '../../../domain/activities/models/activity.dart';
 import '../../core/failures/server_failures.dart';
 import '../interfaces/i_activities_data_interface.dart';
 
+const imageBasePath = "assets/images/activities/";
+
 @LazySingleton(as: IActivityDataRepository)
 class DemoRepository implements IActivityDataRepository {
   RandomActivityGenerator generator;
   final List<Activity> activities = [];
-
   final activityStream = StreamController<List<Activity>>.broadcast();
   @factoryMethod
   DemoRepository({Random random}) {
@@ -106,6 +107,13 @@ class RandomActivityGenerator {
     Come on, it will be fun!""",
     "This is a really nice description for this event, don\'t deny it",
   ];
+  final images = [
+    "bike.jpeg",
+    "cinema.jpg",
+    "party.jpeg",
+    "pool_party.jpeg",
+  ];
+
   Activity generateActivity() {
     final _date = DateTime(
       2021 - random.nextInt(30),
@@ -122,6 +130,7 @@ class RandomActivityGenerator {
       title: activities[random.nextInt(activities.length - 1)],
       description: descriptions[random.nextInt(descriptions.length - 1)],
       date: _date,
+      image: imageBasePath + images[random.nextInt(images.length - 1)],
     );
   }
 }

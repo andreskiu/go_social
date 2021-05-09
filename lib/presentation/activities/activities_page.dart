@@ -62,12 +62,12 @@ class ActivitiesPage extends StatelessWidget {
                               child: ResponsiveText("fetching data..."),
                             );
                           }
-                          return ListView.separated(
-                            separatorBuilder: (context, index) =>
-                                ResponsiveDivider(
-                              indentPercent: 5,
-                              endIndentPercent: 5,
-                            ),
+                          return ListView.builder(
+                            // separatorBuilder: (context, index) =>
+                            //     ResponsiveDivider(
+                            //   indentPercent: 5,
+                            //   endIndentPercent: 5,
+                            // ),
                             itemCount: snap.data.length,
                             itemBuilder: (context, index) => Padding(
                               padding: EdgeInsets.symmetric(
