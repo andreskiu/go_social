@@ -45,10 +45,22 @@ class DemoRepository implements IActivityDataRepository {
 
     final oldActivityIndex =
         activities.indexWhere((act) => act.id == activity.id);
+
     if (oldActivityIndex == -1) {
-      activities.add(activity);
+      generator.id = generator.id + 1;
+      final _activityToSave = activity.copyWith(
+        image: imageBasePath + generator.images.first,
+        id: generator.id,
+      );
+      activities.add(_activityToSave);
     } else {
-      activities.replaceRange(oldActivityIndex, oldActivityIndex, [activity]);
+      // update activity
+
+      activities.replaceRange(
+        oldActivityIndex,
+        oldActivityIndex + 1,
+        [activity],
+      );
     }
     _sortActivities();
     activityStream.sink.add(activities);
@@ -58,7 +70,7 @@ class DemoRepository implements IActivityDataRepository {
 
 class RandomActivityGenerator {
   final Random random;
-  int _id = 0;
+  int id = 0;
   RandomActivityGenerator({
     @required this.random,
   });
@@ -103,8 +115,7 @@ class RandomActivityGenerator {
 
   final descriptions = [
     "Hey guys, it's been a while since the last time we did this! Let's Go!",
-    """Hey someone want to join me for this \"adventure\" ? 
-    Come on, it will be fun!""",
+    """Hey someone want to join me for this \"adventure\" ? Come on, it will be fun!""",
     "This is a really nice description for this event, don\'t deny it",
   ];
   final images = [
@@ -122,9 +133,9 @@ class RandomActivityGenerator {
       23 - random.nextInt(23),
       59 - random.nextInt(59),
     );
-    _id += 1;
+    id += 1;
     return Activity(
-      id: _id,
+      id: id,
       owner: persons[random.nextInt(persons.length - 1)],
       address: locations[random.nextInt(locations.length - 1)],
       title: activities[random.nextInt(activities.length - 1)],

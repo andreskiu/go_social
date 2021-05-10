@@ -11,6 +11,11 @@
                 "labels": {
                     "title": "Actividades"
                 }
+            },
+            "activity_view": {
+                "labels": {
+                    "invited_by": "Fuiste invitado por"
+                }
             }
         },
         "fields": {
@@ -38,6 +43,11 @@
                     "empty": "Requerida"
                 }
             }
+        }
+    },
+    "auth":{
+        "errors":{
+            "user_not_logged": "The user is not Logged In"
         }
     }
 }

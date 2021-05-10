@@ -63,11 +63,6 @@ class ActivitiesPage extends StatelessWidget {
                             );
                           }
                           return ListView.builder(
-                            // separatorBuilder: (context, index) =>
-                            //     ResponsiveDivider(
-                            //   indentPercent: 5,
-                            //   endIndentPercent: 5,
-                            // ),
                             itemCount: snap.data.length,
                             itemBuilder: (context, index) => Padding(
                               padding: EdgeInsets.symmetric(
@@ -80,10 +75,6 @@ class ActivitiesPage extends StatelessWidget {
                               ),
                             ),
                           );
-                          // return ResponsiveText(
-                          //   snap.data.toString(),
-                          //   color: ColorPalette.primaryColorDark,
-                          // );
                         },
                       ),
                     );

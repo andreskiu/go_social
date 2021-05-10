@@ -22,14 +22,22 @@ class SaveActivityUseCase extends UseCase<Unit, SaveActivityUseCaseParams> {
     if (!params.areValid()) {
       return Left(ActivitiesFailure.invalidParams());
     }
-    final _activity = Activity(
-      owner: "crea un usuario",
+    Activity _activity;
+    if (params.activity == null) {
+      //new activity
+      _activity = Activity.empty().copyWith(owner: params.owner);
+    } else {
+      _activity = params.activity;
+    }
+
+    final _activityToSave = _activity.copyWith(
       address: params.address.getValue(),
       title: params.title.getValue(),
       description: params.description.getValue(),
       date: params.date.getValue(),
     );
-    final _successOrFailure = await service.saveActivity(activity: _activity);
+    final _successOrFailure =
+        await service.saveActivity(activity: _activityToSave);
 
     return _successOrFailure.fold(
       (fail) {
@@ -50,12 +58,16 @@ class SaveActivityUseCaseParams extends Equatable {
   final FieldActivityDescription description;
   final FieldActivityAddress address;
   final FieldActivityDate date;
+  final Activity activity;
+  final String owner;
 
   SaveActivityUseCaseParams({
     @required this.title,
     @required this.description,
     @required this.address,
     @required this.date,
+    @required this.owner,
+    this.activity,
   });
 
   bool areValid() {

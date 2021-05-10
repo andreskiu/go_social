@@ -1,10 +1,7 @@
 import 'dart:math';
 
-import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lyrics_app/domain/activities/models/activity.dart';
 import 'package:lyrics_app/infrastructure/activities/repositories/demo_repository.dart';
-import 'package:mockito/mockito.dart';
 
 // class RandomMock extends Mock implements Random {}
 

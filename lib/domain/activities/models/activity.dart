@@ -20,6 +20,15 @@ class Activity extends Equatable {
     this.image,
   });
 
+  factory Activity.empty() {
+    return Activity(
+      owner: "",
+      address: "",
+      title: "",
+      description: "",
+      date: null,
+    );
+  }
   @override
   List<Object> get props => [
         id,

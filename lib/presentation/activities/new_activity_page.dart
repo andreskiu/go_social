@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lyrics_app/application/activities/activity_form_state.dart';
-import 'package:lyrics_app/config/localizations/app_localizations.dart';
-import 'package:lyrics_app/domain/activities/activities_objects/activities_fields.dart';
-import 'package:lyrics_app/presentation/core/widgets/widgets.dart';
+import '../../application/activities/activity_form_state.dart';
+import '../../config/localizations/app_localizations.dart';
+import '../../domain/activities/activities_objects/activities_fields.dart';
+import '../core/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 import '../../domain/activities/models/activity.dart';
 import '../core/widgets/responsivity/device_detector_widget.dart';
