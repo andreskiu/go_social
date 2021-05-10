@@ -1,4 +1,4 @@
-package com.example.lyrics_app
+package com.example.go_social
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,6 +1,6 @@
 {
-    "name": "lyrics_app",
-    "short_name": "lyrics_app",
+    "name": "go_social",
+    "short_name": "go_social",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

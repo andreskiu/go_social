@@ -14,9 +14,9 @@ import '../../application/activities/activities_page_state.dart';
 import '../../infrastructure/core/api/api.dart';
 import '../../infrastructure/auth/services/auth_service_impl.dart';
 import '../../application/auth/auth_state.dart';
-import '../../infrastructure/activities/repositories/demo_repository.dart';
-import '../../infrastructure/auth/repository/demo_auth_repository.dart'
-    as lyrics_app;
+import '../../infrastructure/auth/repository/demo_auth_repository.dart';
+import '../../infrastructure/activities/repositories/demo_repository.dart'
+    as go_social;
 import '../../infrastructure/activities/services/activities_service_impl.dart';
 import '../../infrastructure/core/api/api_configuration.dart';
 import '../../domain/activities/use_cases/get_activities_use_case.dart';
@@ -41,10 +41,10 @@ GetIt $initGetIt(
   gh.factory<BaseOptions>(() => DevBaseOptions());
   gh.factory<Dio>(() => MyDio(baseOptions: get<BaseOptions>()));
   gh.lazySingleton<IActivityDataRepository>(
-      () => DemoRepository(random: get<Random>()));
+      () => go_social.DemoRepository(random: get<Random>()));
   gh.lazySingleton<IActivityService>(
       () => DemoService(dataRepository: get<IActivityDataRepository>()));
-  gh.lazySingleton<IAuthDataRepository>(() => lyrics_app.DemoRepository());
+  gh.lazySingleton<IAuthDataRepository>(() => DemoRepository());
   gh.lazySingleton<IAuthService>(
       () => AuthService(dataRepository: get<IAuthDataRepository>()));
   gh.factory<InterceptorsWrapper>(() => AppInterceptorsWrapper());

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.lyrics_app">
+    package="com.example.go_social">
    <application
-        android:label="lyrics_app"
+        android:label="Go!"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

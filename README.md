@@ -1,4 +1,4 @@
-# lyrics_app
+# go_social
 
 Look for your favorite songs and sing it!
 

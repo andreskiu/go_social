@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lyrics_app/infrastructure/activities/repositories/demo_repository.dart';
+import 'package:go_social/infrastructure/activities/repositories/demo_repository.dart';
 
 // class RandomMock extends Mock implements Random {}
 

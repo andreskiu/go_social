@@ -3,15 +3,15 @@ import 'dart:math';
 
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lyrics_app/domain/activities/failures/activities_failures.dart';
-import 'package:lyrics_app/domain/activities/models/activity.dart';
-import 'package:lyrics_app/domain/activities/services/i_activities_service_interface.dart';
-import 'package:lyrics_app/domain/activities/use_cases/get_activities_use_case.dart';
-import 'package:lyrics_app/domain/core/failures.dart';
-import 'package:lyrics_app/domain/core/use_case.dart';
-import 'package:lyrics_app/infrastructure/activities/repositories/demo_repository.dart';
+import 'package:go_social/domain/activities/failures/activities_failures.dart';
+import 'package:go_social/domain/activities/models/activity.dart';
+import 'package:go_social/domain/activities/services/i_activities_service_interface.dart';
+import 'package:go_social/domain/activities/use_cases/get_activities_use_case.dart';
+import 'package:go_social/domain/core/failures.dart';
+import 'package:go_social/domain/core/use_case.dart';
+import 'package:go_social/infrastructure/activities/repositories/demo_repository.dart';
 
-import 'package:lyrics_app/infrastructure/core/failures/server_failures.dart';
+import 'package:go_social/infrastructure/core/failures/server_failures.dart';
 import 'package:mockito/mockito.dart';
 
 class ActivityServiceMock extends Mock implements IActivityService {}

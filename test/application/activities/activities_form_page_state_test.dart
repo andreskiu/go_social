@@ -3,14 +3,14 @@ import 'dart:math';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
-import 'package:lyrics_app/application/activities/activity_form_state.dart';
-import 'package:lyrics_app/domain/activities/activities_objects/activities_fields.dart';
-import 'package:lyrics_app/domain/activities/models/activity.dart';
-import 'package:lyrics_app/domain/activities/use_cases/save_activity_use_case.dart';
-import 'package:lyrics_app/domain/auth/models/user.dart';
-import 'package:lyrics_app/domain/auth/use_cases/get_user_logged_use_case.dart';
-import 'package:lyrics_app/domain/core/use_case.dart';
-import 'package:lyrics_app/infrastructure/activities/repositories/demo_repository.dart';
+import 'package:go_social/application/activities/activity_form_state.dart';
+import 'package:go_social/domain/activities/activities_objects/activities_fields.dart';
+import 'package:go_social/domain/activities/models/activity.dart';
+import 'package:go_social/domain/activities/use_cases/save_activity_use_case.dart';
+import 'package:go_social/domain/auth/models/user.dart';
+import 'package:go_social/domain/auth/use_cases/get_user_logged_use_case.dart';
+import 'package:go_social/domain/core/use_case.dart';
+import 'package:go_social/infrastructure/activities/repositories/demo_repository.dart';
 import 'package:mockito/mockito.dart';
 
 class SaveActivityUseCaseMock extends Mock implements SaveActivityUseCase {}
