@@ -1,6 +1,6 @@
-# go_social
+# Go!
 
-Look for your favorite songs and sing it!
+Create an activity and get together with your friends!
 
 ## Getting Started
 
@@ -16,7 +16,7 @@ This project is a normal flutter project, so, before running make sure you have 
 Then:
 
 1. Clone this repository
-2. Upgrade your flutter SDK to the latest version in channel master. Today:
+2. This project is using the stable channel of the Flutter SDK, today:
 
 ![version](./assets/images/readme/flutter_version.png)
 
@@ -29,10 +29,17 @@ flutter pub get
 flutter run
 ```
 
-![song_not_found](./assets/images/readme/song_not_found.png)
-![after_successful_search](./assets/images/readme/after_successful_search.png)
-![version](./assets/images/readme/history.png)
+## Test
+This project have a few tests. You can run the tests with:
+```
+flutter test
+```
 
+Also, you can generate a file to evaluate the test coverage. 
+```
+flutter test --coverage
+```
+The above command will generate the coverage/lcov.info file, which can be used to generate a visual report.
 
 
 For help getting started with Flutter, view our
