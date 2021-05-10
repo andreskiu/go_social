@@ -28,6 +28,8 @@ class NewActivityPage extends StatelessWidget {
         final _horizontalUnit = size.blockUnit.width;
         final _verticalUnit = size.blockUnit.height;
         final _today = DateTime.now();
+        const _new_activity =
+            "activities.pages.activity_view.labels.new_activity";
         return ChangeNotifierProvider<ActivityFormState>(
           create: (context) {
             return ActivityFormState(initialActivity: activity);
@@ -38,7 +40,8 @@ class NewActivityPage extends StatelessWidget {
                 return Scaffold(
                   appBar: AppBar(
                     title: ResponsiveText(
-                      state.initialActivity?.title ?? "New Activity",
+                      state.initialActivity?.title ??
+                          _i18n.translate(_new_activity),
                     ),
                   ),
                   body: SingleChildScrollView(

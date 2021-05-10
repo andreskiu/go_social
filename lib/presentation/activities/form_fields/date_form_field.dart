@@ -62,7 +62,9 @@ class _DatetimeFormFieldState extends State<DatetimeFormField>
           firstDate: widget.firstDate,
           fieldHintText: widget.labelText,
           fieldLabelText: widget.labelText,
-          initialDate: _dateTime ?? DateTime.now(),
+          initialDate: _dateTime != null && _dateTime.isAfter(widget.firstDate)
+              ? _dateTime
+              : DateTime.now(),
           lastDate: widget.lastDate,
           selectableDayPredicate: (day) {
             return true;

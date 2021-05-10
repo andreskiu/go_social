@@ -14,6 +14,7 @@
             },
             "activity_view": {
                 "labels": {
+                    "new_activity": "New activity",
                     "invited_by": "You were invited by"
                 }
             }
@@ -22,7 +23,8 @@
             "title": {
                 "label": "Title",
                 "errors": {
-                    "empty": "Please enter a title"
+                    "empty": "Please enter a title",
+                    "too_long": "Title too long"
                 }
             },
             "description": {
@@ -40,7 +42,8 @@
             "date": {
                 "label": "Activity Date",
                 "errors": {
-                    "empty": "Required"
+                    "empty": "Required",
+                    "invalid_date": "Invalid Date"
                 }
             }
         }

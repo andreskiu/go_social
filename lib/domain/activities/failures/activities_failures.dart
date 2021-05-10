@@ -103,10 +103,10 @@ class ActivitiesFailureManager {
         }
         break;
       case ActivitiesFailureTypes.TooLong:
-        _msg = "song_book.pages.search.errors.invalidParams";
+        _msg = "activities.fields.title.errors.too_long";
         break;
       case ActivitiesFailureTypes.InvalidDate:
-        _msg = "song_book.pages.search.errors.invalidParams";
+        _msg = "activities.fields.address.errors.invalid_date";
         break;
     }
 
