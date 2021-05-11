@@ -25,6 +25,7 @@ class ActivitiesPage extends StatelessWidget {
       final _verticalUnit = size.blockUnit.height;
       final _horizontalUnit = size.blockUnit.width;
       const _hello = "activities.pages.activities.labels.title";
+      const _loading = "activities.pages.activities.labels.loading";
       return FutureBuilder<ActivityPageState>(
           future: GetIt.I.getAsync<ActivityPageState>(),
           builder: (context, snapshot) {
@@ -70,13 +71,6 @@ class ActivitiesPage extends StatelessWidget {
                             );
                           },
                         ),
-
-                        // ResponsiveText(
-                        //   _i18n.translate(
-                        //     "activities.pages.activities.labels.title",
-                        //   ),
-                        //   textType: TextType.Headline4,
-                        // ),
                         actions: [
                           Padding(
                             padding:
@@ -97,7 +91,18 @@ class ActivitiesPage extends StatelessWidget {
                         builder: (context, snap) {
                           if (!snap.hasData) {
                             return Center(
-                              child: ResponsiveText("fetching data..."),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  ResponsiveCircularIndicator(),
+                                  SizedBox(
+                                    height: _verticalUnit * 2,
+                                  ),
+                                  ResponsiveText(
+                                    _i18n.translate(_loading),
+                                  ),
+                                ],
+                              ),
                             );
                           }
                           return ListView.builder(

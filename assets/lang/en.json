@@ -9,7 +9,8 @@
                     "server_error": "Please check your internet connection"
                 },
                 "labels": {
-                    "title": "Hello"
+                    "title": "Hello",
+                    "loading": "Looking for cool events"
                 }
             },
             "activity_view": {

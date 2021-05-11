@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
           primaryColor: ColorPalette.primaryColor,
           primaryColorDark: ColorPalette.primaryColorDark,
           primaryColorLight: ColorPalette.primaryColorLight,
+          accentColor: ColorPalette.primaryColor,
           iconTheme: IconThemeData(
             color: ColorPalette.primaryColorDark,
           ),

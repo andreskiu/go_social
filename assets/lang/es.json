@@ -9,7 +9,8 @@
                     "server_error": "Por favor revise su conexión a internet"
                 },
                 "labels": {
-                    "title": "Hola"
+                    "title": "Hola",
+                    "loading": "Buscando eventos geniales!"
                 }
             },
             "activity_view": {
