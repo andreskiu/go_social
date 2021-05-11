@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:go_social/application/auth/auth_state.dart';
-import 'package:go_social/presentation/core/style/color_palette.dart';
+import '../../application/auth/auth_state.dart';
+import '../core/style/color_palette.dart';
 import '../../application/activities/activities_page_state.dart';
 import '../../config/localizations/app_localizations.dart';
 import '../../domain/activities/models/activity.dart';
