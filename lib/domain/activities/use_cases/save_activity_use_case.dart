@@ -10,13 +10,13 @@ import '../models/activity.dart';
 import '../services/i_activities_service_interface.dart';
 
 @lazySingleton
-class SaveActivityUseCase extends UseCase<Unit, SaveActivityUseCaseParams> {
+class SaveActivityUseCase extends UseCase<Activity, SaveActivityUseCaseParams> {
   final IActivityService service;
 
   SaveActivityUseCase(this.service);
 
   @override
-  Future<Either<ActivitiesFailure, Unit>> call(
+  Future<Either<ActivitiesFailure, Activity>> call(
     SaveActivityUseCaseParams params,
   ) async {
     if (!params.areValid()) {
@@ -48,7 +48,7 @@ class SaveActivityUseCase extends UseCase<Unit, SaveActivityUseCaseParams> {
           ),
         );
       },
-      (_) => Right(_),
+      (_) => Right(_activityToSave),
     );
   }
 }

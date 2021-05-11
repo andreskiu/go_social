@@ -29,6 +29,7 @@ class ActivityFormState extends ChangeNotifier {
   FieldActivityDate fieldDate;
   FieldActivityAddress fieldAddress;
   ErrorContent error;
+  Activity activitySaved;
 
   Future<bool> submitForm() async {
     isLoading = true;
@@ -47,7 +48,8 @@ class ActivityFormState extends ChangeNotifier {
     // do something with the result. show some error.
     _successOrFailure.fold((fail) {
       error = fail.details;
-    }, (_) {
+    }, (activity) {
+      activitySaved = activity;
       error = null;
     });
 

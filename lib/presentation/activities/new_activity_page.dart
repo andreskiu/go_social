@@ -138,7 +138,9 @@ class NewActivityPage extends StatelessWidget {
                                             final _success =
                                                 await state.submitForm();
                                             if (_success) {
-                                              Navigator.of(context).pop();
+                                              Navigator.of(context).pop(
+                                                state.activitySaved,
+                                              );
                                             }
                                           }
                                         },

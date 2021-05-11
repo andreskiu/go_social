@@ -13,12 +13,25 @@ import '../core/widgets/responsivity/device_detector_widget.dart';
 import '../core/widgets/responsivity/responsive_text.dart';
 import 'new_activity_page.dart';
 
-class ViewActivityPage extends StatelessWidget {
+class ViewActivityPage extends StatefulWidget {
   final Activity activity;
 
   const ViewActivityPage({
     this.activity,
   });
+
+  @override
+  _ViewActivityPageState createState() => _ViewActivityPageState();
+}
+
+class _ViewActivityPageState extends State<ViewActivityPage> {
+  Activity activity;
+  @override
+  void initState() {
+    super.initState();
+    activity = widget.activity;
+  }
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
@@ -61,14 +74,21 @@ class ViewActivityPage extends StatelessWidget {
                                     icon: Icons.edit,
                                     color: ColorPalette.white,
                                     sizePercent: 2.5,
-                                    onPressed: () {
-                                      Navigator.push(
+                                    onPressed: () async {
+                                      final _activity =
+                                          await Navigator.push<Activity>(
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => NewActivityPage(
-                                              activity: activity),
+                                            activity: activity,
+                                          ),
                                         ),
                                       );
+                                      if (_activity != null) {
+                                        setState(() {
+                                          activity = _activity;
+                                        });
+                                      }
                                     },
                                   );
                           },
