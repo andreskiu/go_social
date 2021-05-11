@@ -106,7 +106,7 @@ class ActivitiesFailureManager {
         _msg = "activities.fields.title.errors.too_long";
         break;
       case ActivitiesFailureTypes.InvalidDate:
-        _msg = "activities.fields.address.errors.invalid_date";
+        _msg = "activities.fields.date.errors.invalid_date";
         break;
     }
 

@@ -26,8 +26,7 @@ Either<ActivitiesFailure, String> validateActivityDescription(String input) {
 
 Either<ActivitiesFailure, String> validateActivityAddress(String input) {
   if (input == null || input.isEmpty) {
-    return Left(
-        ActivitiesFailure.Mandatory(field: ActivitiesFields.Description));
+    return Left(ActivitiesFailure.Mandatory(field: ActivitiesFields.Address));
   }
   if (input.length > 70) {
     return Left(ActivitiesFailure.TooLong());
