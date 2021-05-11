@@ -41,6 +41,23 @@ flutter test --coverage
 ```
 The above command will generate the coverage/lcov.info file, which can be used to generate a visual report.
 
+## Coverage Report
+** Only for mac
+
+To generate a graphic report to see the test coverage, follow the following steps:
+
+- Install lcov:
+```
+brew install lcov
+```
+
+- Generate the report with the following command: (Note: the report is filled with the data present in the lcov.info file generated on the previous step)
+```
+genhtml coverage/lcov.info -o coverage/html
+```
+
+- The report is generated in the folder coverage/html. Open the index.html file with your web browser to see the report.
+
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
