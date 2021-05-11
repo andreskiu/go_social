@@ -93,6 +93,7 @@ class ResponsiveInput extends StatefulWidget {
   final AutovalidateMode autoValidateMode;
   final List<TextInputFormatter> inputFormatter;
   final int maxLength;
+  final int maxLines;
   final int fontSize;
   final void Function(String) onSaved;
   final void Function(String) onChanged;
@@ -109,7 +110,7 @@ class ResponsiveInput extends StatefulWidget {
     Key key,
     this.labelText,
     this.hintText,
-    this.fontSize = 28,
+    this.fontSize = 22,
     this.initialValue,
     this.controller,
     this.enabled = true,
@@ -118,6 +119,7 @@ class ResponsiveInput extends StatefulWidget {
     this.keyboardType = TextInputType.text,
     this.validator,
     this.maxLength,
+    this.maxLines,
     this.inputFormatter,
     this.onSaved,
     this.onChanged,
@@ -179,21 +181,24 @@ class _ResponsiveInputState extends State<ResponsiveInput> {
             TextType.Headline6,
           ).copyWith(
             fontSize: calculateFontSize(size, widget.fontSize),
-            color: ColorPalette.greyText,
+            color: ColorPalette.primaryColorDark,
             decoration: _focus.hasFocus
                 ? TextDecoration.underline
                 : TextDecoration.none,
           ),
           maxLength: widget.maxLength,
+          maxLines: widget.maxLines,
           decoration: InputDecoration(
             fillColor: Colors.transparent,
             isDense: widget.isDense,
             contentPadding: EdgeInsets.only(
               left: _horizontalUnit / 2,
+              top: _verticalUnit * 2,
               bottom: _verticalUnit,
             ),
             hintText: widget.hintText,
             labelText: widget.labelText,
+            alignLabelWithHint: true,
             hintStyle: calculateTextStyle(
               context,
               TextType.InputFieldHint,
@@ -206,16 +211,19 @@ class _ResponsiveInputState extends State<ResponsiveInput> {
             ).copyWith(
               fontSize: calculateFontSize(size, widget.fontSize - 4),
             ),
-            counter: SizedBox.shrink(),
+            counterStyle: TextStyle(
+              color: ColorPalette.primaryColor,
+              fontSize: calculateFontSize(size, 15),
+            ),
             labelStyle: calculateTextStyle(
               context,
               TextType.InputFieldLabel,
             ).copyWith(
               fontSize: calculateFontSize(size, widget.fontSize),
             ),
-            border: UnderlineInputBorder(
-              borderRadius: BorderRadius.circular(6),
-              borderSide: BorderSide.none,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(_verticalUnit),
+              gapPadding: _horizontalUnit * 5,
             ),
             suffixIconConstraints: _iconsContraints,
             prefixIconConstraints: BoxConstraints(

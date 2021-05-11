@@ -9,13 +9,27 @@
                     "server_error": "Por favor revise su conexión a internet"
                 },
                 "labels": {
-                    "title": "Actividades"
+                    "title": "Hola"
                 }
             },
             "activity_view": {
                 "labels": {
                     "new_activity": "Nueva actividad",
+                    "edit_activity": "Editar actividad",
                     "invited_by": "Fuiste invitado por"
+                }
+            },
+            "activity_form":{
+                "buttons": {
+                    "save": {
+                        "label": "Guardar"
+                    }
+                },
+                "labels":{
+                    "what":"Ponle un nombre espectacular a tu evento!",
+                    "description":"No olvides contarles a tus amigos sobre qué trata tu evento!",
+                    "where":"Tus amigos necesitan saber donde va a ser!",
+                    "when":"Y cuándo... por supuesto!"
                 }
             }
         },

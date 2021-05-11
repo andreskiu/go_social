@@ -28,6 +28,8 @@ class _ActivityDescriptionFormFieldState
       labelText: _i18n.translate("activities.fields.description.label"),
       hintText: _i18n.translate("activities.fields.description.label"),
       initialValue: widget.initialValue,
+      maxLength: 500,
+      maxLines: 10,
       validator: (description) {
         final error = FieldActivityDescription(description).getError();
 

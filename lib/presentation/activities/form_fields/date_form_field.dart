@@ -52,10 +52,6 @@ class _DatetimeFormFieldState extends State<DatetimeFormField>
       controller: _controller,
       labelText: widget.labelText,
       readOnly: true,
-      suffixIconData: _dateTime == null ? null : Icons.cancel_outlined,
-      onIconPressed: () => setState(() {
-        _dateTime = null;
-      }),
       onTap: () async {
         final date = await showDatePicker(
           context: context,

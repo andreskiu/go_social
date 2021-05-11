@@ -24,17 +24,39 @@ class MyApp extends StatelessWidget {
           primaryColor: ColorPalette.primaryColor,
           primaryColorDark: ColorPalette.primaryColorDark,
           primaryColorLight: ColorPalette.primaryColorLight,
-
-          // buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.accent),
+          iconTheme: IconThemeData(
+            color: ColorPalette.primaryColorDark,
+          ),
+          primaryTextTheme: TextTheme(
+            headline4: TextStyle(
+                color: ColorPalette.white, fontWeight: FontWeight.bold),
+            headline6: TextStyle(
+              color: ColorPalette.primaryColor,
+            ),
+            bodyText1: TextStyle(
+              color: ColorPalette.primaryColorDark,
+            ),
+          ),
           inputDecorationTheme: InputDecorationTheme(
-            hintStyle: TextStyle(),
-            labelStyle: TextStyle(),
+            hintStyle: TextStyle(
+              color: ColorPalette.primaryColorDark,
+            ),
+            labelStyle: TextStyle(
+              color: ColorPalette.primaryColorDark,
+              fontWeight: FontWeight.bold,
+            ),
             errorStyle: TextStyle(
               color: ColorPalette.red,
             ),
           ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
+              overlayColor: MaterialStateProperty.all(
+                ColorPalette.accentColor,
+              ),
+              backgroundColor: MaterialStateProperty.all(
+                ColorPalette.primaryColor,
+              ),
               textStyle: MaterialStateProperty.all(
                 TextStyle(
                   color: ColorPalette.white,

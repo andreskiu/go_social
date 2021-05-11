@@ -9,13 +9,27 @@
                     "server_error": "Please check your internet connection"
                 },
                 "labels": {
-                    "title": "Activities"
+                    "title": "Hello"
                 }
             },
             "activity_view": {
                 "labels": {
                     "new_activity": "New activity",
+                    "edit_activity": "Edit activity",
                     "invited_by": "You were invited by"
+                }
+            },
+            "activity_form": {
+                "buttons": {
+                    "save": {
+                        "label": "Save"
+                    }
+                },
+                "labels": {
+                    "what": "Give a cool name to your activity!",
+                    "description": "Don't forget to tell your friends what is you activity about!",
+                    "where": "Your friends need to know where it's gonna be!",
+                    "when": "And when... of course!"
                 }
             }
         },
@@ -48,8 +62,8 @@
             }
         }
     },
-    "auth":{
-        "errors":{
+    "auth": {
+        "errors": {
             "user_not_logged": "The user is not Logged In"
         }
     }

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:go_social/application/auth/auth_state.dart';
+import 'package:go_social/presentation/core/style/color_palette.dart';
 import '../../application/activities/activities_page_state.dart';
 import '../../config/localizations/app_localizations.dart';
 import '../../domain/activities/models/activity.dart';
@@ -22,6 +24,7 @@ class ActivitiesPage extends StatelessWidget {
     return ResponsiveBuilder(builder: (context, size) {
       final _verticalUnit = size.blockUnit.height;
       final _horizontalUnit = size.blockUnit.width;
+      const _hello = "activities.pages.activities.labels.title";
       return FutureBuilder<ActivityPageState>(
           future: GetIt.I.getAsync<ActivityPageState>(),
           builder: (context, snapshot) {
@@ -37,9 +40,43 @@ class ActivitiesPage extends StatelessWidget {
                   builder: (context, state, widget) {
                     return Scaffold(
                       appBar: AppBar(
-                        title: Text(_i18n.translate(
-                          "activities.pages.activities.labels.title",
-                        )),
+                        title: FutureBuilder<AuthState>(
+                          future: GetIt.I.getAsync<AuthState>(),
+                          builder: (context, snapshot) {
+                            if (!snapshot.hasData || snapshot.data == null) {
+                              return SizedBox.shrink();
+                            }
+                            return ChangeNotifierProvider<AuthState>.value(
+                              value: snapshot.data,
+                              builder: (context, child) {
+                                return Consumer<AuthState>(
+                                  builder: (context, state, child) {
+                                    if (state.userLogged == null) {
+                                      return Container();
+                                    }
+                                    final _name =
+                                        " ${state.userLogged.username}!";
+                                    return ResponsiveText(
+                                      _i18n.translate(
+                                            _hello,
+                                          ) +
+                                          _name,
+                                      textType: TextType.Headline4,
+                                      fontSize: 28,
+                                    );
+                                  },
+                                );
+                              },
+                            );
+                          },
+                        ),
+
+                        // ResponsiveText(
+                        //   _i18n.translate(
+                        //     "activities.pages.activities.labels.title",
+                        //   ),
+                        //   textType: TextType.Headline4,
+                        // ),
                         actions: [
                           Padding(
                             padding:
@@ -47,6 +84,7 @@ class ActivitiesPage extends StatelessWidget {
                             child: ResponsiveIconButton(
                               icon: Icons.add,
                               sizePercent: 4,
+                              color: ColorPalette.white,
                               onPressed: () {
                                 Navigator.pushNamed(context, "/new_activity");
                               },

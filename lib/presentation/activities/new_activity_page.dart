@@ -30,6 +30,9 @@ class NewActivityPage extends StatelessWidget {
         final _today = DateTime.now();
         const _new_activity =
             "activities.pages.activity_view.labels.new_activity";
+        const _edit_activity =
+            "activities.pages.activity_view.labels.edit_activity";
+        const _base_translation = "activities.pages.activity_form";
         return ChangeNotifierProvider<ActivityFormState>(
           create: (context) {
             return ActivityFormState(initialActivity: activity);
@@ -40,8 +43,11 @@ class NewActivityPage extends StatelessWidget {
                 return Scaffold(
                   appBar: AppBar(
                     title: ResponsiveText(
-                      state.initialActivity?.title ??
-                          _i18n.translate(_new_activity),
+                      state.initialActivity != null
+                          ? _i18n.translate(_edit_activity)
+                          : _i18n.translate(_new_activity),
+                      textType: TextType.Headline4,
+                      fontSize: 28,
                     ),
                   ),
                   body: SingleChildScrollView(
@@ -53,20 +59,28 @@ class NewActivityPage extends StatelessWidget {
                       child: Form(
                         key: _saveActivityForm,
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            SizedBox(height: _verticalUnit * 2),
+                            ResponsiveText(
+                              _i18n.translate(
+                                _base_translation + ".labels.what",
+                              ),
+                            ),
+                            SizedBox(height: _verticalUnit * 2),
                             ActivityTitleFormField(
                               initialValue: state.initialActivity?.title,
                               onSaved: (title) {
                                 state.fieldTitle = FieldActivityTitle(title);
                               },
                             ),
-                            ActivityAddressFormField(
-                              initialValue: state.initialActivity?.address,
-                              onSaved: (address) {
-                                state.fieldAddress =
-                                    FieldActivityAddress(address);
-                              },
+                            SizedBox(height: _verticalUnit * 2),
+                            ResponsiveText(
+                              _i18n.translate(
+                                _base_translation + ".labels.description",
+                              ),
                             ),
+                            SizedBox(height: _verticalUnit * 2),
                             ActivityDescriptionFormField(
                               initialValue: state.initialActivity?.description,
                               onSaved: (description) {
@@ -74,6 +88,27 @@ class NewActivityPage extends StatelessWidget {
                                     FieldActivityDescription(description);
                               },
                             ),
+                            SizedBox(height: _verticalUnit * 2),
+                            ResponsiveText(
+                              _i18n.translate(
+                                _base_translation + ".labels.where",
+                              ),
+                            ),
+                            SizedBox(height: _verticalUnit * 2),
+                            ActivityAddressFormField(
+                              initialValue: state.initialActivity?.address,
+                              onSaved: (address) {
+                                state.fieldAddress =
+                                    FieldActivityAddress(address);
+                              },
+                            ),
+                            SizedBox(height: _verticalUnit * 2),
+                            ResponsiveText(
+                              _i18n.translate(
+                                _base_translation + ".labels.when",
+                              ),
+                            ),
+                            SizedBox(height: _verticalUnit * 2),
                             DatetimeFormField(
                               initialValue: state.initialActivity?.date,
                               onSaved: (date) {
@@ -84,21 +119,32 @@ class NewActivityPage extends StatelessWidget {
                               firstDate: _today,
                               lastDate: _today.add(Duration(days: 365)),
                             ),
-                            state.isLoading
-                                ? ResponsiveCircularIndicator()
-                                : AppButton(
-                                    textContent: "Save",
-                                    onPressed: () async {
-                                      if (_saveActivityForm.currentState
-                                          .validate()) {
-                                        _saveActivityForm.currentState.save();
-                                        final _success =
-                                            await state.submitForm();
-                                        if (_success) {
-                                          Navigator.of(context).pop();
-                                        }
-                                      }
-                                    })
+                            SizedBox(height: _verticalUnit * 2),
+                            Center(
+                              child: state.isLoading
+                                  ? ResponsiveCircularIndicator()
+                                  : Container(
+                                      width: _horizontalUnit * 50,
+                                      child: AppButton(
+                                        textContent: _i18n.translate(
+                                          _base_translation +
+                                              ".buttons.save.label",
+                                        ),
+                                        onPressed: () async {
+                                          if (_saveActivityForm.currentState
+                                              .validate()) {
+                                            _saveActivityForm.currentState
+                                                .save();
+                                            final _success =
+                                                await state.submitForm();
+                                            if (_success) {
+                                              Navigator.of(context).pop();
+                                            }
+                                          }
+                                        },
+                                      ),
+                                    ),
+                            )
                           ],
                         ),
                       ),

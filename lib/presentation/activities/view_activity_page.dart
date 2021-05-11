@@ -36,6 +36,7 @@ class ViewActivityPage extends StatelessWidget {
             title: ResponsiveText(
               activity.title,
               fontSize: 30,
+              textType: TextType.Headline4,
             ),
             actions: [
               Padding(
@@ -58,6 +59,8 @@ class ViewActivityPage extends StatelessWidget {
                                 ? Container()
                                 : ResponsiveIconButton(
                                     icon: Icons.edit,
+                                    color: ColorPalette.white,
+                                    sizePercent: 2.5,
                                     onPressed: () {
                                       Navigator.push(
                                         context,
@@ -100,6 +103,7 @@ class ViewActivityPage extends StatelessWidget {
                     child: ResponsiveText(
                       activity.title,
                       fontSize: 35,
+                      textType: TextType.Headline6,
                     ),
                   ),
                 ),
@@ -178,7 +182,7 @@ class ViewActivityPage extends StatelessWidget {
                       ),
                       Expanded(
                         child: ResponsiveText(
-                          _i18n.translate(_invitedBy) + "${activity.owner}",
+                          _i18n.translate(_invitedBy) + " ${activity.owner}",
                           color: ColorPalette.primaryColorDark,
                         ),
                       ),

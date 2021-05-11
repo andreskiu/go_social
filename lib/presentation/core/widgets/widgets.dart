@@ -72,11 +72,13 @@ class ResponsiveIconButton extends StatelessWidget {
   final double sizePercent;
   final Function() onPressed;
   final IconData icon;
+  final Color color;
 
   const ResponsiveIconButton({
     @required this.icon,
     this.sizePercent = 2,
     this.onPressed,
+    this.color,
   });
   @override
   Widget build(BuildContext context) {
@@ -87,7 +89,7 @@ class ResponsiveIconButton extends StatelessWidget {
           icon: Icon(
             icon,
             size: _verticalUnit * sizePercent,
-            color: ColorPalette.greyDarkIcon,
+            color: color ?? ColorPalette.greyDarkIcon,
           ),
           constraints: BoxConstraints.tightFor(
             width: _verticalUnit * sizePercent,
